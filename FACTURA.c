@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     int menu=0;
     
   
-    do
+    do //este do es el principal del programa, lo que hace es el menú para elegir los productos y hacer el proceso de facturación
       {
         printf("1) Cotizar Factura\n");
         printf("2) Facturar\n");
@@ -25,9 +25,9 @@ int main(int argc, char *argv[])
         scanf("%d", &menu);
        
 
-        switch(menu)
-        {
-          case 1: 
+        switch(menu)//apartir de este switch se elige las opciones 1, 2 o 3, en la opcion 1 se cotiza la factura, es decir se elige los productos y la cantidad del mismo
+        {//en la opcion 2 se hace el proceso de facturacion, es decir se ingresa el nombre y cedula del cliente y se realizan los calculos para el total y subtotal a pagar
+          case 1: //opcion 3, como su nombre dice es para salir y finalizar el programa
                 do
                   {
                     printf("**********Escoja un producto que desee facturar: **********\n");
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
                     scanf("%d" ,&opcion);
                     
   
-                    switch (opcion)
+                    switch (opcion)//en este switch es para elegir el producto que quieres facturar y tambien ingresar la cantidad del producto
                     {
                       case 1:
                                printf("ingrese el numero de Llantas: \n");
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
                 break;
 
 
-          case 2: 
+          case 2: //este case ya es la factura, se ingresa el nombre y cedula. Se realizan los calculos para la factura (subtotal y total)
                   printf("Ingrese el nombre del cliente: \n");
                   scanf("%s", &nombre);
                   printf("Ingrese la cedula del cliente: \n");
@@ -118,17 +118,20 @@ int main(int argc, char *argv[])
             
                   subtotal=subtotalA+subtotalB+subtotalC+subtotalD,subtotalE;
             
-                  if (subtotal>100 && subtotal <=500)
+                  if (subtotal>501 && subtotal <=1000)
                   {
-                      subtotal=subtotal*0.05;
+                      subtotal=subtotal*0.96;
+                      printf("Se aplico el 4 porciento: %.2f", subtotal);
                   }
-                  else if (subtotal>500 && subtotal<=1000)
+                  else if (subtotal>1001 && subtotal<=5000)
                   {
-                      subtotal=subtotal*0.07;
+                      subtotal=subtotal*0.93;
+                      printf("Se aplico el 7 porciento: %.2f", subtotal);
                   }
-                  else if (subtotal>1000)
+                  else if (subtotal>5000)
                   {
-                    subtotal=subtotal*0.1;
+                    subtotal=subtotal*0.91;
+                      printf("Se aplico el 9 porciento: %.2f", subtotal);
                   }
                
                   total = subtotal *1.12;
